@@ -21,3 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidThemes"
 include(":app")
+include(":core")

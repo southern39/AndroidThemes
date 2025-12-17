@@ -1,21 +1,18 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.kapt)
 }
 
 android {
-    namespace = "vn.southern.androidthemes"
+    namespace = "vn.southern.core"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "vn.southern.androidthemes"
         minSdk = 26
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles("consumer-rules.pro")
     }
 
     buildTypes {
@@ -40,8 +37,6 @@ android {
 }
 
 dependencies {
-    // Local modules
-    implementation(project(":core"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -49,8 +44,8 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
     // Dagger
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
-
 }
